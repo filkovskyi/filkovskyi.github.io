@@ -10,6 +10,8 @@ import waterFragmentShader from './shaders/water/fragment.glsl'
  */
 // Debug
 const gui = new dat.GUI({ width: 340 })
+dat.GUI.toggleHide();
+
 const debugObject = {}
 
 // Canvas
@@ -17,6 +19,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.Color('#10235c');
 
 /**
  * Water
@@ -168,6 +171,7 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.enabled = false;
 
 /**
  * Renderer
